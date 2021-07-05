@@ -70,7 +70,7 @@ body{
 /*end*/
 
 
-/*WHhen seat has class of showcase without the class occupied and transform*/
+/*When seat has class of showcase without the class occupied and transform*/
 .showcase.seat:not(.occupied):hover{
 	cursor: default;
 	transform: scale(1);
