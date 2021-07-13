@@ -44,12 +44,32 @@ function doubleMoney() {
 
 // Sort users by richest
 function sortByRichest() {
-  console.log(123);
+ 
   data.sort((a, b) => b.money - a.money);
 
   updateDOM();
 }
 
+//filter millionaire
+function showMillionaire(){
+
+	data=data.filter(item=>item.money > 1000000);
+
+	 updateDOM();
+}
+
+// Calculate the total wealth
+function calculateWealth() {
+  const wealth = data.reduce((acc, user) => (acc += user.money), 0); 
+
+  //adding html 
+  const wealthEl = document.createElement('div');
+  wealthEl.innerHTML = `<h3>Total Wealth: <strong>${formatMoney(
+    wealth
+  )}</strong></h3>`;
+  main.appendChild(wealthEl);
+  //ends
+}
 
 // Add new obj to data arr
 function addData(obj) {
@@ -83,3 +103,5 @@ function formatMoney(number) {
 addUserBtn.addEventListener('click', getRandomUser);
 doubleBtn.addEventListener('click', doubleMoney);
 sortBtn.addEventListener('click', sortByRichest);
+showMillionairesBtn.addEventListener('click', showMillionaire);
+calculateWealthBtn.addEventListener('click', calculateWealth);
